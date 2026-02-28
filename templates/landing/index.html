@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block title %}Alke Wallet — Tu billetera digital{% endblock %}
+
+{% block content %}
+<div class="text-center py-5">
+    <h1 class="display-4 fw-bold">Alke Wallet</h1>
+    <p class="lead text-muted mt-3">Tu billetera digital segura y confiable.</p>
+    <p class="text-muted">Deposita, transfiere y gestiona tus contactos en un solo lugar.</p>
+
+    <div class="mt-4 d-flex gap-3 justify-content-center">
+        {% if user.is_authenticated %}
+            <a href="{% url 'dashboard' %}" class="btn btn-primary btn-lg">Ir al Dashboard</a>
+        {% else %}
+            <a href="{% url 'register' %}" class="btn btn-success btn-lg">Crear cuenta</a>
+            <a href="{% url 'login' %}" class="btn btn-outline-primary btn-lg">Iniciar sesión</a>
+        {% endif %}
+    </div>
+</div>
+
+<div class="row g-4 mt-4">
+    <div class="col-md-4">
+        <div class="card text-center shadow-sm h-100">
+            <div class="card-body p-4">
+                <h5 class="card-title">Depósitos</h5>
+                <p class="card-text text-muted">Agrega fondos a tu billetera de forma rápida y sencilla.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card text-center shadow-sm h-100">
+            <div class="card-body p-4">
+                <h5 class="card-title">Transferencias</h5>
+                <p class="card-text text-muted">Envía dinero a tus contactos con solo unos clics.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card text-center shadow-sm h-100">
+            <div class="card-body p-4">
+                <h5 class="card-title">Historial</h5>
+                <p class="card-text text-muted">Revisa todos tus movimientos en un solo lugar.</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

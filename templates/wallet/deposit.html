@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %}Depositar — Alke Wallet{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card shadow-sm">
+            <div class="card-body p-4">
+                <h2 class="card-title mb-4">Depositar fondos</h2>
+
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label for="monto" class="form-label">Monto a depositar</label>
+                        <input type="number" class="form-control" id="monto" name="monto" min="1" placeholder="Ingresa el monto">
+                    </div>
+                    <div class="mb-3">
+                        <label for="descripcion" class="form-label">Descripción</label>
+                        <input type="text" class="form-control" id="descripcion" name="descripcion" placeholder="Ej: depósito mensual">
+                    </div>
+                    <button type="submit" class="btn btn-success w-100">Depositar</button>
+                </form>
+
+                <a href="{% url 'dashboard' %}" class="btn btn-link w-100 mt-2">Volver al dashboard</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

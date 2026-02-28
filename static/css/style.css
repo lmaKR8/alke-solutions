@@ -1,0 +1,109 @@
+/* --- Variables CSS --- */
+:root {
+    --color-primario: #0d6efd;
+    --color-exito: #198754;
+    --color-peligro: #dc3545;
+    --color-advertencia: #ffc107;
+    --color-oscuro: #212529;
+    --color-fondo: #f8f9fa;
+    --color-blanco: #ffffff;
+    --color-texto: #343a40;
+    --color-texto-suave: #6c757d;
+    --radio-borde: 8px;
+    --sombra-card: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* --- Base general --- */
+body {
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+}
+
+/* --- Navbar --- */
+.navbar-brand {
+    font-weight: bold;
+    font-size: 1.3rem;
+    letter-spacing: 1px;
+}
+
+/* --- Cards --- */
+.card {
+    border-radius: var(--radio-borde);
+    box-shadow: var(--sombra-card);
+    border: none;
+}
+
+.card-title {
+    font-weight: bold;
+}
+
+/* Card de saldo en dashboard */
+.card.bg-primary {
+    background-color: var(--color-primario) !important;
+}
+
+.card.bg-primary .card-text {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+/* --- Formularios --- */
+.form-control,
+.form-select {
+    border-radius: var(--radio-borde);
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: var(--color-primario);
+    box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+}
+
+/* --- Botones --- */
+.btn {
+    border-radius: var(--radio-borde);
+}
+
+/* --- Tabla de transacciones --- */
+.table {
+    border-radius: var(--radio-borde);
+    overflow: hidden;
+}
+
+.table thead th {
+    font-weight: bold;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* --- Badges --- */
+.badge {
+    font-size: 0.8rem;
+    padding: 0.4em 0.7em;
+    border-radius: 4px;
+}
+
+/* --- Footer --- */
+footer {
+    font-size: 0.9rem;
+}
+
+/* --- Landing page --- */
+.display-4 {
+    color: var(--color-primario);
+}
+
+/* --- Alertas --- */
+.alert {
+    border-radius: var(--radio-borde);
+    border: none;
+}

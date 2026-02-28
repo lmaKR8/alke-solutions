@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block title %}Nuevo contacto — Alke Wallet{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card shadow-sm">
+            <div class="card-body p-4">
+                <h2 class="card-title mb-4">Nuevo contacto</h2>
+
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label for="nombre" class="form-label">Nombre completo</label>
+                        <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ej: Ana Torres">
+                    </div>
+                    <div class="mb-3">
+                        <label for="cbu" class="form-label">CBU (22 dígitos)</label>
+                        <input type="text" class="form-control" id="cbu" name="cbu" maxlength="22" placeholder="0000003100010000000001">
+                    </div>
+                    <div class="mb-3">
+                        <label for="alias" class="form-label">Alias</label>
+                        <input type="text" class="form-control" id="alias" name="alias" placeholder="Ej: ana.torres">
+                    </div>
+                    <div class="mb-3">
+                        <label for="banco" class="form-label">Banco</label>
+                        <input type="text" class="form-control" id="banco" name="banco" placeholder="Ej: Banco Demo">
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Guardar contacto</button>
+                </form>
+
+                <a href="{% url 'contact_list' %}" class="btn btn-link w-100 mt-2">Volver a contactos</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

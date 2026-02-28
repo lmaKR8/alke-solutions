@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block title %}Dashboard — Alke Wallet{% endblock %}
+
+{% block content %}
+<h2 class="mb-4">Bienvenido, {{ usuario.username }}</h2>
+
+<div class="row g-4">
+    <!-- Tarjeta saldo -->
+    <div class="col-md-4">
+        <div class="card text-white bg-primary shadow-sm">
+            <div class="card-body">
+                <h5 class="card-title">Saldo disponible</h5>
+                <p class="card-text fs-3">${{ saldo }}</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Accesos rápidos -->
+    <div class="col-md-8">
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <h5 class="card-title">Acciones rápidas</h5>
+                <div class="d-flex gap-2 mt-3">
+                    <a href="{% url 'deposit' %}" class="btn btn-success">Depositar</a>
+                    <a href="{% url 'send_money' %}" class="btn btn-warning">Enviar dinero</a>
+                    <a href="{% url 'transaction_list' %}" class="btn btn-secondary">Ver transacciones</a>
+                    <a href="{% url 'contact_list' %}" class="btn btn-info">Mis contactos</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

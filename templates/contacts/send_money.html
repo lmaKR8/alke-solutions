@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block title %}Enviar dinero — Alke Wallet{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card shadow-sm">
+            <div class="card-body p-4">
+                <h2 class="card-title mb-4">Enviar dinero</h2>
+
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label for="contacto" class="form-label">Selecciona un contacto</label>
+                        <select class="form-select" id="contacto" name="contacto">
+                            <option value="">-- Elige un contacto --</option>
+                            {% for contacto in contactos %}
+                                <option value="{{ contacto.cbu }}">{{ contacto.nombre }} ({{ contacto.alias }})</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="monto" class="form-label">Monto a enviar</label>
+                        <input type="number" class="form-control" id="monto" name="monto" min="1" placeholder="Ingresa el monto">
+                    </div>
+                    <div class="mb-3">
+                        <label for="mensaje" class="form-label">Mensaje (opcional)</label>
+                        <input type="text" class="form-control" id="mensaje" name="mensaje" placeholder="Ej: pago cuota">
+                    </div>
+                    <button type="submit" class="btn btn-warning w-100">Enviar dinero</button>
+                </form>
+
+                <a href="{% url 'dashboard' %}" class="btn btn-link w-100 mt-2">Volver al dashboard</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

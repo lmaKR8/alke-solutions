@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block title %}Mis contactos — Alke Wallet{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h2>Mis contactos</h2>
+    <a href="{% url 'contact_create' %}" class="btn btn-primary">+ Nuevo contacto</a>
+</div>
+
+{% if contactos %}
+    <div class="table-responsive">
+        <table class="table table-striped table-hover">
+            <thead class="table-dark">
+                <tr>
+                    <th>Nombre</th>
+                    <th>CBU</th>
+                    <th>Alias</th>
+                    <th>Banco</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for contacto in contactos %}
+                <tr>
+                    <td>{{ contacto.nombre }}</td>
+                    <td>{{ contacto.cbu }}</td>
+                    <td>{{ contacto.alias }}</td>
+                    <td>{{ contacto.banco }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% else %}
+    <p class="text-muted">No tienes contactos guardados.</p>
+{% endif %}
+
+<a href="{% url 'dashboard' %}" class="btn btn-secondary mt-2">Volver al dashboard</a>
+{% endblock %}
